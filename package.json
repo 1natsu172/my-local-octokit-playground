@@ -13,13 +13,15 @@
   "license": "ISC",
   "type": "module",
   "devDependencies": {
+    "@commander-js/extra-typings": "^10.0.2",
     "@types/node": "^18.13.0",
     "dotenv": "^16.0.3",
     "tsx": "^3.12.3",
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "@octokit/core": "^4.2.0"
+    "@octokit/core": "^4.2.0",
+    "commander": "^10.0.0"
   },
   "volta": {
     "node": "18.14.0"
