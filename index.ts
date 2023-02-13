@@ -1,1 +1,1 @@
-console.log('hogehoge')
+import './src/index'
