@@ -9,6 +9,11 @@ const p = program
 
 p.executableDir(__dirname)
 
-p.name('ghp').version('0.0.1').command('search [query]', 'search something')
+p.name('ghp')
+  .version('0.0.1')
+  .command('search [query]', 'search something')
+  .command('search [query]', 'search something')
+  .command('search [query]', 'search something')
+  .command('search [query]', 'search something')
 
 p.parse(process.argv)
