@@ -1,13 +1,14 @@
 import { program } from '@commander-js/extra-typings'
+import path from 'path'
+import { fileURLToPath } from 'url'
 
-program
-  .name('ghp')
-  .version('0.1.0')
-  .command('install [name]', 'install one or more packages')
-  .command('search [query]', 'search with optional query')
-  .command('update', 'update installed packages', {
-    executableFile: 'myUpdateSubCommand',
-  })
-  .command('list', 'list packages installed', { isDefault: true })
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
-program.parse(process.argv)
+const p = program
+
+p.executableDir(__dirname)
+
+p.name('ghp').version('0.0.1').command('search [query]', 'search something')
+
+p.parse(process.argv)
