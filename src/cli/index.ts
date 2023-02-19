@@ -1,4 +1,3 @@
-// import { program } from '@commander-js/extra-typings'
 import { Cli } from 'clipanion'
 import { registerSubCommands } from './helpers'
 import { subCommands } from './subCommands'
