@@ -1,4 +1,4 @@
-import { Command } from '@commander-js/extra-typings'
+import { CommandClass } from 'clipanion'
 import { readdir } from 'fs/promises'
 import path from 'path'
 import { fileURLToPath } from 'url'
@@ -21,7 +21,13 @@ const importCommands = async (dirName: string) => {
     const imported = await Promise.all(
       filePaths.map(async (path) => {
         const resolve = await import(path)
-        return resolve.command as Command
+        // console.log('expoted', resolve)
+        if (!resolve.command) {
+          throw new Error(
+            `sub command file must have "export const command = <SubCommandClass>"`,
+          )
+        }
+        return resolve.command as CommandClass
       }),
     )
     return imported

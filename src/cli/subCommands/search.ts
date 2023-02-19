@@ -1,17 +1,16 @@
-import { program } from '@commander-js/extra-typings'
+import { Command, Option } from 'clipanion'
 import { getEnv, octokit } from '../../libs'
 
-export const command = program
-  .command('search')
-  .description('search it')
-  .argument('<username>', 'user to login')
-  .action((argv, command) => {
-    console.log('search', argv)
+export class SearchCommand extends Command {
+  static paths = [[`search`]]
 
-    // await octokit.graphql(`
-    //   {}
-    // `)
-  })
+  name = Option.String()
 
-// @ts-expect-error not defined type but exist in property.
-export const actionHandler = command._actionHandler
+  id = Option.String()
+
+  async execute() {
+    this.context.stdout.write(`Hello ${this.name}! your id is ${this.id}\n`)
+  }
+}
+
+export const command = SearchCommand

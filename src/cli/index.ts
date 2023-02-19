@@ -1,14 +1,19 @@
-import { program } from '@commander-js/extra-typings'
+// import { program } from '@commander-js/extra-typings'
+import { Cli } from 'clipanion'
 import { registerSubCommands } from './helpers'
 import { subCommands } from './subCommands'
 
-program.name('ghp').version('0.0.1')
-// .executableDir(__dirname)
+const [node, app, ...args] = process.argv
+
+const cli = new Cli({
+  binaryLabel: `My Application`,
+  binaryName: `${node} ${app}`,
+  binaryVersion: `0.0.1`,
+})
 
 try {
-  // @ts-ignore FIXME: Tuple型
-  registerSubCommands(program, subCommands)
-  await program.parseAsync(process.argv)
+  registerSubCommands(cli, subCommands)
+  await cli.runExit(args)
 } catch (error) {
   throw error
 }

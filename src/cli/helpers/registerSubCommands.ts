@@ -1,15 +1,12 @@
-import { Command, OptionValues } from '@commander-js/extra-typings'
+import { BaseContext, Cli, CommandClass } from 'clipanion'
 
-export const registerSubCommands = <
-  Args extends any[] = [],
-  Opts extends OptionValues = {},
->(
-  program: Command<Args, Opts>,
-  commandDefs: Command<Args, Opts>[],
+export const registerSubCommands = <Context extends BaseContext>(
+  cli: Cli,
+  commandDefs: CommandClass<Context>[],
 ) => {
   for (const command of commandDefs) {
-    program.addCommand(command).copyInheritedSettings(program)
+    cli.register(command)
   }
 
-  return program
+  return cli
 }
