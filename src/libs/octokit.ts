@@ -1,5 +1,5 @@
 import { Octokit } from '@octokit/core'
-import { getEnv } from './getEnv'
+import { getEnv } from './getEnv.js'
 
 const { GH_TOKEN } = getEnv()
 

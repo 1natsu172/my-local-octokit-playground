@@ -1,5 +1,5 @@
 import { Command, Option } from 'clipanion'
-import { getEnv, octokit } from '../../libs'
+import { getEnv, octokit } from '../../libs/index.js'
 
 export class SearchCommand extends Command {
   static paths = [[`search`]]

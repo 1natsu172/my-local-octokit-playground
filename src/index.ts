@@ -1,5 +1,5 @@
-import { getEnv, octokit } from './libs'
-import './cli'
+import { getEnv, octokit } from './libs/index.js'
+import './cli.js'
 
 console.log('is dry?', getEnv().DRY_RUN)
 

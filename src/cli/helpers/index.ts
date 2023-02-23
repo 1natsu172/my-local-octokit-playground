@@ -1,2 +1,2 @@
-export * from './registerSubCommands'
-export * from './types'
+export * from './registerSubCommands.js'
+export * from './types.js'
