@@ -1,6 +1,5 @@
 import { Cli } from 'clipanion'
 import { registerSubCommands } from './helpers/index.js'
-import { subCommands } from './subCommands/index.js'
 
 export async function main() {
   const [node, app, ...args] = process.argv
@@ -12,7 +11,7 @@ export async function main() {
   })
 
   try {
-    registerSubCommands(cli, subCommands)
+    await registerSubCommands(cli)
     await cli.runExit(args)
   } catch (error) {
     throw error
