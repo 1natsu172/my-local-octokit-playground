@@ -1,8 +1,6 @@
 import { getEnv, octokit } from './libs/index.js'
 import './cli.js'
 
-console.log('is dry?', getEnv().DRY_RUN)
-
 // const res = await octokit.graphql(
 //   `{
 //     nodes(ids: ["I_kwDOIqaxms5eAdRI"]) {

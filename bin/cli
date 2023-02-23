@@ -3,6 +3,5 @@ set -euo pipefail
 
 cd `dirname $0`/../; pwd;
 
-# FIXME: tsupがdirectory structureを維持しないので動的importできずに壊れるのでsrcを一旦読む
-./src/cli.ts $@
-# ./dist/cli.js $@
+# run cli
+./dist/cli.js $@

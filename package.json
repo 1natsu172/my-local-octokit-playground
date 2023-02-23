@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "init:repo": "sh scripts/init-repo.sh",
-    "start": "DRY_RUN=true node -r dotenv/config --loader tsx src/cli.ts",
+    "start": "$npm_execpath run dev",
     "dev": "$npm_execpath run build-fast --watch",
     "build": "tsup ./src/index.ts ./src/cli.ts --target=es2022 --format=esm --clean --dts",
     "build-fast": "$npm_execpath run build --no-dts",
