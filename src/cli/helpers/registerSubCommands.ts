@@ -2,8 +2,8 @@ import { Cli } from 'clipanion'
 
 export const registerSubCommands = async (cli: Cli) => {
   const subCommands = await Promise.all([
-    import('../subCommands/iteration.js').then(({ command }) => command),
-    import('../subCommands/search.js').then(({ command }) => command),
+    (await import('../subCommands/iteration.js')).IterationCommand,
+    (await import('../subCommands/search.js')).SearchCommand,
   ])
 
   for (const command of subCommands) {

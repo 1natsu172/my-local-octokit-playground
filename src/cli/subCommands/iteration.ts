@@ -9,5 +9,3 @@ export class IterationCommand extends Command {
     this.context.stdout.write(`Hello ${this.name}!\n`)
   }
 }
-
-export const command = IterationCommand
