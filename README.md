@@ -12,5 +12,5 @@ then builded to dist.
 ### check command
 
 ```bash
-bin/cli <command>
+bin/cli <command> <args...>
 ```
