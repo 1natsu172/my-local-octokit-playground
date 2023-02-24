@@ -1,5 +1,4 @@
 import { getEnv, octokit } from './libs/index.js'
-import './cli.js'
 
 // const res = await octokit.graphql(
 //   `{
