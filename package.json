@@ -5,12 +5,12 @@
   "scripts": {
     "init:repo": "sh scripts/init-repo.sh",
     "start": "$npm_execpath run dev",
-    "dev": "$npm_execpath run build-fast --watch",
+    "dev": "$npm_execpath run build:fast --watch",
     "build": "tsup ./src/index.ts ./src/cli.ts --target=es2022 --format=esm --clean --dts",
-    "build-fast": "$npm_execpath run build --no-dts",
+    "build:fast": "$npm_execpath run build --no-dts",
     "prepublishOnly": "$npm_execpath run build",
-    "test": "$npm_execpath run build && $npm_execpath run test-only",
-    "test-only": "vitest run"
+    "test": "$npm_execpath run build && $npm_execpath run test:only",
+    "test:only": "vitest run"
   },
   "keywords": [],
   "author": "1natsu172",
