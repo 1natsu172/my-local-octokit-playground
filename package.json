@@ -41,8 +41,5 @@
     "@octokit/core": "^4.2.0",
     "clipanion": "^3.2.0"
   },
-  "packageManager": "pnpm@7.27.1+sha1.75c15a7a16389531192dab282e45aacdac1ed4c0",
-  "volta": {
-    "node": "18.14.0"
-  }
+  "packageManager": "pnpm@7.27.1+sha1.75c15a7a16389531192dab282e45aacdac1ed4c0"
 }
