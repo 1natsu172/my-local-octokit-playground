@@ -1,6 +1,14 @@
 # my-local-octokit-playground
 I wanna run something script through octokit at local.
 
+# setup
+
+```bash
+pnpm run init:repo
+```
+
+open the headed chromium broweser(playwright). Login to the GitHub.com then saved login session to your local.
+
 # development
 
 ```bash
@@ -14,3 +22,4 @@ then builded to dist.
 ```bash
 bin/cli <command> <args...>
 ```
+

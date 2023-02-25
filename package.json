@@ -10,7 +10,10 @@
     "build:fast": "$npm_execpath run build --no-dts",
     "prepublishOnly": "$npm_execpath run build",
     "test": "$npm_execpath run build && $npm_execpath run test:only",
-    "test:only": "vitest run"
+    "test:only": "vitest run",
+    "e2e:login": "playwright codegen https://github.com/login",
+    "e2e:login:save": "$npm_execpath run e2e:login --save-storage playwright/.auth/user.json",
+    "e2e:login:check": "$npm_execpath run e2e:login --load-storage playwright/.auth/user.json"
   },
   "keywords": [],
   "author": "1natsu172",
