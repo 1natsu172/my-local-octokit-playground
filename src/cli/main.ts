@@ -1,4 +1,4 @@
-import { Cli } from 'clipanion'
+import { Cli, Builtins } from 'clipanion'
 import { registerSubCommands } from './helpers/index.js'
 
 export async function main() {
@@ -11,7 +11,9 @@ export async function main() {
   })
 
   try {
-    await registerSubCommands(cli)
+    await registerSubCommands(cli).then((cli) =>
+      cli.register(Builtins.HelpCommand),
+    )
     await cli.runExit(args)
   } catch (error) {
     throw error
