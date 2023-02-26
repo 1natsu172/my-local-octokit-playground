@@ -19,9 +19,9 @@ function createUrl(options: Omit<Options, 'to'>) {
   const { projectViewUrl, is, from } = options
 
   /**
-   * decode style is: '?filterQuery=is:open+iteration:@current'
+   * decode style is: 'is:open+iteration:"Iteration+1"'
    */
-  const queryString = `?filterQuery=is:${is}+iteration:${from}`
+  const queryString = `is:${is}+iteration:"${from}"`
 
-  return projectViewUrl + encodeURIComponent(queryString)
+  return projectViewUrl + '?filterQuery=' + encodeURI(queryString)
 }
