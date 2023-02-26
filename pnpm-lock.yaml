@@ -6,6 +6,7 @@ specifiers:
   '@types/node': ^18.13.0
   clipanion: ^3.2.0
   dotenv: ^16.0.3
+  playwright: ^1.31.1
   tsup: ^6.6.3
   typanion: ^3.12.1
   typescript: ^4.9.5
@@ -13,6 +14,7 @@ specifiers:
 dependencies:
   '@octokit/core': 4.2.0
   clipanion: 3.2.0_typanion@3.12.1
+  playwright: 1.31.1
   typanion: 3.12.1
 
 devDependencies:
@@ -769,7 +771,15 @@ packages:
     resolution: {integrity: sha512-JTyX4kV3/LXsvpHkLzL2I36aCdml4zeE35x+G5aPc4bkLsiRiQshU5lWeVpHFAuC8xAcbI6FDcw/8z3q2xtJSQ==}
     engines: {node: '>=14'}
     hasBin: true
-    dev: true
+
+  /playwright/1.31.1:
+    resolution: {integrity: sha512-zKJabsIA2rvOwJ12lGTqWv4HVJzlfw2JtUvO4hAr7J8UXQZ1qEPpX20E1vcz/9fotnTkwgqp3CVdIBwptBN3Fg==}
+    engines: {node: '>=14'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      playwright-core: 1.31.1
+    dev: false
 
   /postcss-load-config/3.1.4:
     resolution: {integrity: sha512-6DiM4E7v4coTE4uzA8U//WhtPwyhiim3eyjEMFCnUpzbrkK9wJHgKDT2mR+HbtSrd/NubVaYTOpSpjUl8NQeRg==}

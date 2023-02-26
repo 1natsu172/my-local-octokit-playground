@@ -1,2 +1,2 @@
-export { getEnv } from './getEnv'
-export { octokit } from './octokit'
+export { getEnv } from './getEnv.js'
+export { octokit } from './octokit.js'

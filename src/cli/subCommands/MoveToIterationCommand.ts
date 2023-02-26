@@ -1,12 +1,14 @@
-import { Command, Option, Usage } from 'clipanion'
+import { Command, Option } from 'clipanion'
 import * as t from 'typanion'
-import { getEnv, octokit } from '../../libs/index.js'
+import { moveToIteration } from '../../services/moveToIteration/index.js'
+import { getEnv } from '../../libs/index.js'
 
 /**
  * The accepted values are "1" OR "2".
+ * @description `@~~` ダルいので非対応
  */
 const iterationKeyValidator = t.isOneOf([
-  t.isEnum(['@previous', '@current', '@next']), // "1" Which one
+  // t.isEnum(['@previous', '@current', '@next']), // "1" Which one
   // @ts-ignore
   t.matchesRegExp(/Iteration \d/), // "2" `Iteration <digit>`
 ])
@@ -35,17 +37,22 @@ export class MoveToIterationCommand extends Command {
 
   from = Option.String(`--from`, {
     required: true,
-    validator: iterationKeyValidator,
+    // validator: iterationKeyValidator,
   })
 
   to = Option.String(`--to`, {
     required: true,
-    validator: iterationKeyValidator,
+    // validator: iterationKeyValidator,
   })
 
   async execute() {
+    const { is, projectViewUrl, from, to } = this
     this.context.stdout.write(
-      `Hello ${this.projectViewUrl} ${this.is} ${this.from} ${this.to}!\n`,
+      `Hello your request = url=${projectViewUrl}, is=${is}, from=${from}, to=${to}!\n`,
     )
+
+    if (!getEnv().DRY_RUN) {
+      await moveToIteration({ projectViewUrl, is, from, to })
+    }
   }
 }

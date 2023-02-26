@@ -44,6 +44,7 @@
   "dependencies": {
     "@octokit/core": "^4.2.0",
     "clipanion": "^3.2.0",
+    "playwright": "^1.31.1",
     "typanion": "^3.12.1"
   },
   "packageManager": "pnpm@7.27.1+sha1.75c15a7a16389531192dab282e45aacdac1ed4c0"
