@@ -37,12 +37,12 @@ export class MoveToIterationCommand extends Command {
 
   from = Option.String(`--from`, {
     required: true,
-    // validator: iterationKeyValidator,
+    validator: iterationKeyValidator,
   })
 
   to = Option.String(`--to`, {
     required: true,
-    // validator: iterationKeyValidator,
+    validator: iterationKeyValidator,
   })
 
   async execute() {
