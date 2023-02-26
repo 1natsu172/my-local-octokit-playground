@@ -7,6 +7,15 @@ test('has title', async ({ page }) => {
   await expect(page).toHaveTitle(/Playwright/)
 })
 
+test('2fa', async ({ page }, testInfo) => {
+  await page.goto('https://github.com/login')
+
+  // Expect a title "to contain" a substring.
+  await page.screenshot({
+    path: `${testInfo.outputDir}/screenshots/${testInfo.title}-${testInfo.line}.png`,
+  })
+})
+
 test('get started link', async ({ page }) => {
   await page.goto('https://playwright.dev/')
 
