@@ -23,3 +23,8 @@ then builded to dist.
 bin/cli <command> <args...>
 ```
 
+#### if you want to debug on e2e?
+
+```bash
+`PWDEBUG=1 bin/cli <command> <args...>`
+```
