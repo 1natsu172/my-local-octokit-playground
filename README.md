@@ -25,6 +25,9 @@ bin/cli <command> <args...>
 
 #### if you want to debug on e2e?
 
+- https://playwright.dev/docs/debug
+- https://playwright.dev/docs/debug-selectors#using-playwright-inspector
+
 ```bash
 `PWDEBUG=1 bin/cli <command> <args...>`
 ```
