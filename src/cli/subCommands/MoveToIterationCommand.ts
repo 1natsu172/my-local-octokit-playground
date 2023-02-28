@@ -20,11 +20,11 @@ export class MoveToIterationCommand extends Command {
     examples: [
       [
         `move-to-iteration example`,
-        `$0 move-to-iteration https://github.com/users/1natsu172/projects/2/views/1 --from @current --to @next`,
+        `$0 move-to-iteration https://github.com/users/1natsu172/projects/2/views/1 --from "Iteration 1" --to "Iteration 2"`,
       ],
       [
         `moti example with 'is'`,
-        `$0 moti https://github.com/users/1natsu172/projects/2/views/1 --is open --from @current --to @next`,
+        `$0 bin/cli moti https://github.com/users/1natsu172/projects/2 --is open --from "Iteration 1" --to "Iteration 2"`,
       ],
     ],
   })

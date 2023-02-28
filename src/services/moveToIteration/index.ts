@@ -12,7 +12,7 @@ export const moveToIteration = async (options: Options) => {
 
   const url = createUrl({ projectViewUrl, is, from })
 
-  await flight({ url, nextIteration: to })
+  await flight({ url, fromIteration: from, nextIteration: to })
 }
 
 function createUrl(options: Omit<Options, 'to'>) {
