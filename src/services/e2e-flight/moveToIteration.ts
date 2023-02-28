@@ -47,10 +47,15 @@ async function fly(page: Page, flightContext: FlightContext) {
       break
     }
 
-    for (let index = 0; index < fromIterationCount; index++) {
+    console.log('targets iteration count is: ', fromIterationCount)
+
+    for (let index = 1; index <= fromIterationCount; index++) {
+      console.log(`processing…… ${index}/${fromIterationCount}`)
       await selectCellAndChange(targetFromIterations)
     }
   }
+
+  console.log('DONE! Landing!')
 
   //------------------------------------------------------------------
   /**
@@ -63,8 +68,6 @@ async function fly(page: Page, flightContext: FlightContext) {
 
     const targetFromIterations = await iterationCells.getByText(fromIteration)
     const fromIterationCount = await targetFromIterations.count()
-
-    console.log('target iteration counts', fromIterationCount)
 
     return {
       targetFromIterations,
