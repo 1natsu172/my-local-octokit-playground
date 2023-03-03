@@ -32,7 +32,7 @@ export const flight = async (flightContext: FlightContext) => {
  * @description flight course.
  */
 async function fly(page: Page, flightContext: FlightContext) {
-  const { url, fromStatus, nextStatus } = flightContext
+  const { url, nextStatus } = flightContext
 
   await page.goto(url)
 
@@ -65,7 +65,9 @@ async function fly(page: Page, flightContext: FlightContext) {
     // waiting……first rendered.
     await statusCells.count()
 
-    const targetFromStatuss = await statusCells.getByText(fromStatus)
+    const targetFromStatuss = await statusCells.getByRole('button', {
+      name: 'Dropdown button',
+    })
     const fromStatusCount = await targetFromStatuss.count()
 
     return {
@@ -79,10 +81,10 @@ async function fly(page: Page, flightContext: FlightContext) {
    */
   async function selectCellAndChange(targetCells: Locator) {
     const targetCell = await targetCells.nth(0)
-
-    // TODO: 空statusから変更パターン
     await targetCell.click()
-    await targetCell.press('Enter')
+
+    await page.getByPlaceholder('Filter options').click()
+    await page.getByPlaceholder('Filter options').fill(nextStatus)
 
     const dropdownOption = page.getByTestId('table-cell-editor-row')
     await dropdownOption.count()

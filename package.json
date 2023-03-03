@@ -14,7 +14,7 @@
     "e2e": "playwright test",
     "e2e:login": "playwright codegen https://github.com/login",
     "e2e:login:save": "$npm_execpath run e2e:login --save-storage playwright/.auth/user.json",
-    "e2e:login:check": "$npm_execpath run e2e:login --load-storage playwright/.auth/user.json"
+    "e2e:login:check": "$npm_execpath playwright codegen --load-storage playwright/.auth/user.json"
   },
   "keywords": [],
   "author": "1natsu172",

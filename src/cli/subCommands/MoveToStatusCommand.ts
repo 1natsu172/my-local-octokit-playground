@@ -21,11 +21,12 @@ export class MoveToStatusCommand extends Command {
     ],
   })
 
-  // example: https://github.com/users/1natsu172/projects/2/views/1
-  projectViewUrl = Option.String({ required: true })
-
-  // GitHub issue query that `is`
-  is = Option.String(`--is`, 'open', {})
+  // example: https://github.com/users/1natsu172/projects/2/views/2?layout=table&filterQuery=is%3Aclosed+no%3Astatus+no%3Astatus
+  // @ts-ignore
+  projectViewUrl = Option.String({
+    required: true,
+    validator: t.matchesRegExp(/filterQuery=/),
+  }) as string
 
   from = Option.String(`--from`, {
     required: true,
@@ -38,13 +39,13 @@ export class MoveToStatusCommand extends Command {
   })
 
   async execute() {
-    const { is, projectViewUrl, from, to } = this
+    const { projectViewUrl, from, to } = this
     this.context.stdout.write(
-      `Hello your request = url=${projectViewUrl}, is=${is}, from=${from}, to=${to}!\n`,
+      `Hello your request = url=${projectViewUrl}, from=${from}, to=${to}!\n`,
     )
 
     if (!getEnv().DRY_RUN) {
-      await moveToStatus({ projectViewUrl, is, from, to })
+      await moveToStatus({ projectViewUrl, from, to })
     }
   }
 }
