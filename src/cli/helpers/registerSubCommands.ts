@@ -5,6 +5,7 @@ export const registerSubCommands = async (cli: Cli) => {
     (
       await import('../subCommands/MoveToIterationCommand.js')
     ).MoveToIterationCommand,
+    (await import('../subCommands/MoveToStatusCommand.js')).MoveToStatusCommand,
     (await import('../subCommands/search.js')).SearchCommand,
   ])
 

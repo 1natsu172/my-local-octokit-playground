@@ -1,27 +1,27 @@
-import { flight, IterationKey } from './e2e-flight.js'
+import { flight, StatusKey } from './e2e-flight.js'
 
 type Options = {
   projectViewUrl: string
   is: string
-  from: IterationKey
-  to: IterationKey
+  from: StatusKey
+  to: StatusKey
 }
 
-export const moveToIteration = async (options: Options) => {
+export const moveToStatus = async (options: Options) => {
   const { projectViewUrl, is, from, to } = options
 
   const url = createUrl({ projectViewUrl, is, from })
 
-  await flight({ url, fromIteration: from, nextIteration: to })
+  await flight({ url, fromStatus: from, nextStatus: to })
 }
 
 function createUrl(options: Omit<Options, 'to'>) {
   const { projectViewUrl, is, from } = options
 
   /**
-   * decode style is: 'is:open+iteration:"Iteration+1"'
+   * decode style is: 'is:open+status:"Status+1"'
    */
-  const queryString = `is:${is}+iteration:"${from}"`
+  const queryString = `is:${is}+status:"${from}"`
 
   // layout=table view is must.
   return projectViewUrl + '?layout=table&filterQuery=' + encodeURI(queryString)
