@@ -23,5 +23,6 @@ function createUrl(options: Omit<Options, 'to'>) {
    */
   const queryString = `is:${is}+iteration:"${from}"`
 
-  return projectViewUrl + '?filterQuery=' + encodeURI(queryString)
+  // layout=table view is must.
+  return projectViewUrl + '?layout=table&filterQuery=' + encodeURI(queryString)
 }
