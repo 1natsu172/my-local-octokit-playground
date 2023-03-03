@@ -81,6 +81,7 @@ async function fly(page: Page, flightContext: FlightContext) {
   async function selectCellAndChange(targetCells: Locator) {
     const targetCell = await targetCells.nth(0)
 
+    // TODO: 空iterationから変更パターン
     await targetCell.click()
     await targetCell.press('Enter')
 
